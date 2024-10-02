@@ -38,7 +38,7 @@ basicCN <- ggplot(davisdata,aes(y=alcohol,x=Seat))
 basicCN + geom_boxplot()
 ```
   
-  
+  The boxplot shows that the drunks sit mostly in the back. 
 ### get fancy  
 
 ```{r}
@@ -46,9 +46,21 @@ basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='e
 ```
 
 ## Numerical Summarys 
-
+```{r}
+favstats(alcohol~Seat,data=ucdavis1)
+```
+The average for people in the back is higher (3.5) then the people in the middle which is (1.0) and even higher then the people sitting in the front (0)
 ## Inferential Tests
 
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
 ## Conclusions
-
-
+In conclusion the tukey is saying that our P-value is 0.000116 which is lower than .05 so we reject the null hypthosis. The data we were trying to find is if there is no difference in where you sit which is wrong because the mean shown on the tukey is 0. 
