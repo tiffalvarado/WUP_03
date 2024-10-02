@@ -14,8 +14,18 @@ require(tidyverse)
 require(tigerstats)
 davisdata <- read.csv(file="UCDavis.csv")
 ```
-## Our Goal is to answer this question Is there a difference between the alcohol consumed between the row
-## you choose to sit in??
+## Our Goal is to answer this question Is there a difference between the alcohol consumed between the row you choose to sit in??
+
+
+## Method
+predict alcohol consumption based on where you sit  
+
+$H_0$ No diff in alcohol cons based on where you sit  
+$H_A$ There is a difference based on where you sit  
+
+alcohol is numerical  
+seat is catagorical so we use the helper file num~cat  
+
 
 ## Now with ggplot - first select the basic data
 
